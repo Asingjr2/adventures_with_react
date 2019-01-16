@@ -1,0 +1,31 @@
+Random:
+
+LINK:
+  Babel = https://babeljs.io/repl
+  
+  Fakerjs = https://github.com/marak/Faker.js/
+
+  Semantic = https://semantic-ui.com/
+
+TIPS:
+1) Can pass props.children to nest components.
+
+MISC:
+1) Can use create-react-app to create templete project.
+2) Babel works to convert js project to ES, ES2015, etc.
+3) Shorthand css addition: https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css
+
+HTML VS JSX
+1) JSX converted to HTML with tools like Babel.  JSX is must more concise.
+2) ************JSX strings uses doublel quotes...all other JS uses single quotes.
+3) ************ Do not use class in JSX...use JSX.
+
+
+STD CODE 
+import React from "react";
+import ReactDOM from "react-dom";
+
+ReactDOM.render(
+  <App />,
+  document.querySelector("#root")
+);

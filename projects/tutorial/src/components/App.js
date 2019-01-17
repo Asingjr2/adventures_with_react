@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import NameForm from './NameForm';
 
 const App = () => {
   return (
@@ -7,7 +7,7 @@ const App = () => {
     <h1>
       APP
     </h1>
-    <SearchBar  testName="Joe Blow" />
+    <NameForm  alias="Superman" />
   </div>)
 };
 

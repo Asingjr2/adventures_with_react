@@ -1,4 +1,6 @@
 import React from 'react';
+import './ImageList.css';
+import ImageCard from './ImageCard';
 
 // Creating functional component that returns array of images.
 const ImageList = (props) => {
@@ -11,11 +13,12 @@ const ImageList = (props) => {
     //   return <img key={image.id} src={image.urls.regular} alt={image.description}/>
   //***************************************************************** */
 
-  const images = props.images.map(( {description, id, urls} ) => {
-    return <img key={id} src={urls.regular} alt={description}/>
+  // Using map to work through array of images and return multiple imageCard elements.
+  const images = props.images.map(image => {
+    return <ImageCard key={image.id} image={image} />
   }); 
 
-  return <div> {images}</div>
+  return <div className="image-list">{images}</div>
 }
 
 export default ImageList

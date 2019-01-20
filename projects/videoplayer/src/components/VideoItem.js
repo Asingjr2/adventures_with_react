@@ -1,14 +1,17 @@
 import React from 'react';
-import '.VideoItem'
+import './VideoItem.css'
 
-const VideoItem = ({video}) => {
+// Added onclick event passed from paremt (videolist) and then previous parent (app).  
+// Making arrow function so that function is ran only on click and works directly with passed video.
+const VideoItem = ({video, onVideoSelect}) => {
   return (
-  <div className="item">
+  <div className="item video-item"
+    onClick={() => onVideoSelect(video)}>
     <img className="ui image"
     src={video.snippet.thumbnails.medium.url} 
     alt={video.description} />
     <div className="content">
-      <a href="" className="header">{video.snippet.title}</a>
+      <div className="header">{video.snippet.title}</div>
     </div>
   VIDEO ITEM
   </div>

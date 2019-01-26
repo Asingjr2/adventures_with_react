@@ -1,3 +1,4 @@
+import _ from 'lodash';
 /** Exporting function action type. */
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
@@ -40,11 +41,20 @@ export const fetchPosts = () => {
 //   dispatch({ type: 'FETCH_POSTS', payload: response.data})
 // };
 
-/** Function belows returns async dispatch function that grabs user using passed id. */
-export const fetchUser = (id) => async dispatch => {
-  const response = await jsonPlaceholder.get(`/users/${id}`);
-
-  dispatch({ type: 'FETCH_USER', payload: response.data})
+/** 
+ * Function belows returns async dispatch function that grabs user using passed id. 
+ * Function updated to only run once since original dispatch and get request, which are computationally expensive, are run only once.*/
+export const fetchUser = (id) => dispatch => {
+  _fetchUser(id, dispatch);
 }
 
+/** 
+ * Memoizing function to ensure that is only called once.
+ * Purpose of below is to hit expensive request only one time and store result in cache (which is accessed when the function is called again).
+ * Can test in smaller app with counter.
+ *  */
+export const _fetchUser = _.memoize(async (id, dispatch) => {
+  const response = await jsonPlaceholder.get(`/users/${id}`);
 
+  dispatch({ type: 'FETCH_USER', payload: response.data});
+});

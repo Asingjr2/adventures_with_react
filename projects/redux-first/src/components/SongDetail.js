@@ -22,4 +22,8 @@ const mapStateToProps = state => {
   return { song: state.selectedSong } 
 };
 
+
+// Connect passes information in first parenthesis to props!!! 
+// Is an object or other type of value is passed, it is then added to songDetail in props.
+
 export default connect(mapStateToProps)(SongDetail);

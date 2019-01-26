@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchPostsAndUsers } from '../actions';
 import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
   /** Will be making aync requests in didMount function. */
   componentDidMount() {
-    /** Making async request on component mount. */
-    this.props.fetchPosts();
+    this.props.fetchPostsAndUsers();
   }
 
   /** Helper function to keep render clean */
@@ -43,4 +42,4 @@ const mapStateToProps = state => {
 /** Using redux requries that we call connect function to pass function up to store. */
 export default connect(
   mapStateToProps,
-   {fetchPosts: fetchPosts}) (PostList)
+   {fetchPostsAndUsers: fetchPostsAndUsers}) (PostList)

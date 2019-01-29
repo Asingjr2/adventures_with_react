@@ -20,12 +20,12 @@ class GoogleAuth extends React.Component {
         () => {
           /** 
            * Below grabs auth object then
-           * pass auth object to onAuth logged in state (i.e true or false) then
+           * passes auth object to onAuth logged in state (i.e true or false) then
            * uses event listener to be used in conjunction with state. 
            */
           this.auth = window.gapi.auth2.getAuthInstance();
-          this.onAuthChange(this.auth.isSignedIn.get()); 
-          this.auth.isSignedIn.listen(this.onAuthChange);
+          this.onAuthChange(this.auth.isSignedIn.get());  // grabs status
+          this.auth.isSignedIn.listen(this.onAuthChange); // listens for change
         }
       );
     });
@@ -40,6 +40,7 @@ class GoogleAuth extends React.Component {
   //   this.setState({loggedIn: this.auth.isSignedIn.get()})
   // }
 
+  /** Function calls action creator based on status. */
   onAuthChange = loggedIn => {
     if (loggedIn) {
       this.props.signIn();
@@ -88,6 +89,5 @@ class GoogleAuth extends React.Component {
 const mapStateToProps = state => {
   return { loggedIn: state.auth.loggedIn }
 }
-/** Currently no mapStateToProps was created or is needed in component. */
 export default connect(mapStateToProps, 
   { signIn, signOut}) (GoogleAuth);

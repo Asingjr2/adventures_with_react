@@ -6,6 +6,8 @@
  */
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
 
 
 /** 
@@ -33,7 +35,6 @@ class StreamCreate extends React.Component {
    * Object in validate that contains field name can be seen in 'meta'.
    */
   renderInput = ({ input, label, meta }) => {
-    console.log(meta)
     const styling = `field ${meta.error && meta.touched ? 'error' : ""}`
     return(
       <div className={styling}>
@@ -45,8 +46,8 @@ class StreamCreate extends React.Component {
   }
 
   /** onSubmit passed through redux's handleSubmit which prevents defualt and upates form state values. */
-  onSubmit(formValues) {
-    console.log(formValues)
+  onSubmit = (formValues) => {
+    this.props.createStream(formValues);
   }
 
   /**  
@@ -95,13 +96,21 @@ class StreamCreate extends React.Component {
     formErrors.description = 'Description must be entered';
   }
 
-  console.log(formErrors);
   return formErrors;
  }
-export default reduxForm({
+
+ /** Wrapping component in form so props can be passed into connect function. */
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate: formValidate
-})(StreamCreate);
+})(StreamCreate)
+
+/** 
+ * Using null as arguement so othere is no mapStrate function,
+ * along with action creator for use with submit.
+ * Passing action creator to component as a prop as well.
+ */
+export default connect(null, { createStream: createStream }) (formWrapped) ;
 
 
 

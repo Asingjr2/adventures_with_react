@@ -1,10 +1,12 @@
 /** 
  * Signin action creator that will help reducers update login state.
  * Action creator return actions with type and optional payload.
+ * Sending userId for reference in other parts of app.
  */
-export const signIn = () => {
+export const signIn = (userId) => {
   return {
-    type: 'SIGN_IN'
+    type: 'SIGN_IN',
+    payload: userId
   };
 };
 

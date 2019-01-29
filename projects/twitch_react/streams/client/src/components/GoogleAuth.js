@@ -40,10 +40,10 @@ class GoogleAuth extends React.Component {
   //   this.setState({loggedIn: this.auth.isSignedIn.get()})
   // }
 
-  /** Function calls action creator based on status. */
+  /** Function calls action creator based on logged in status. */
   onAuthChange = loggedIn => {
     if (loggedIn) {
-      this.props.signIn();
+      this.props.signIn(this.auth.currentUser.get().getId());
     } else {
       this.props.signOut();
     }

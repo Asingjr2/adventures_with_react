@@ -1,62 +1,36 @@
 import streams from '../apis/steams';
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  FETCH_STREAM,
+  CREATE_STREAM,
+  UPDATE_STREAM,
+  DELETE_STREAM,
+  FETCH_STREAMS
+} from './types';
 
-/** 
- * Signin action creator that will help reducers update login state.
- * Action creator return actions with type and optional payload.
- * Sending userId for reference in other parts of app.
- */
-export const signIn = (userId) => {
+
+export const signIn = userId => {
   return {
-    type: 'SIGN_IN',
+    type: SIGN_IN,
     payload: userId
   };
 };
 
-export const signOut = () => {
+export const signOut = userId => {
   return {
-    type: 'SIGN_OUT'
+    type: SIGN_OUT,
+    payload: userId
   };
 };
 
-/** A bit overkill to create functions to return a string, 
- * but is consistent and allows for more logic later. 
- * Would be easier to just create separate action file listing these out.*/
-export const fetchSingleStream = () => {
-  return {
-    type: 'FETCH_STREAM'
-  };
-};
-
-export const createStream = () => {
-  return {
-    type: 'CREATE_STREAM'
-  };
-};
-
-export const updateStream = () => {
-  return {
-    type: 'UPDATE_STREAM'
-  };
-};
-
-export const deleteStream = () => {
-  return {
-    type: 'DELETE_STREAM'
-  };
-};
-
-export const fetchStreams = () => {
-  return {
-    type: 'FETCH_STREAMS'
-  };
-};
 
 /** Receiving formValues from submitted form and then submitting through form. */
 export const createStreamAction = (formValues) => {
   return async dispatch => {
     const response = await streams.post('/streams', formValues);
 
-    dispatch({ type: createStream, payload: response.data })
+    dispatch({ type: CREATE_STREAM, payload: response.data })
   };
 }
 
@@ -65,7 +39,7 @@ export const fetchStreamsAction = () => {
   return async dispatch => {
     const response = await streams.get('/streams');
 
-    dispatch({ type: fetchStreams, payload: response.data })
+    dispatch({ type: FETCH_STREAMS, payload: response.data })
   };
 }
 
@@ -73,7 +47,7 @@ export const fetchSingleStreamAction = (id) => {
   return async dispatch => {
     const response = await streams.get(`/streams/:${id}`);
 
-    dispatch({ type: fetchSingleStream, payload: response.data })
+    dispatch({ type: FETCH_STREAM, payload: response.data })
   };
 }
 
@@ -82,7 +56,7 @@ export const updateStreamAction = (id, formValues) => {
   return async dispatch => {
     const response = await streams.put(`/streams/:${id}`, formValues);
 
-    dispatch({ type: updateStream, payload: response.data })
+    dispatch({ type: UPDATE_STREAM, payload: response.data })
   };
 }
 
@@ -91,6 +65,6 @@ export const deleteStreamAction = (id) => {
   return async dispatch => {
     await streams.delete(`/streams/:${id}`);
 
-    dispatch({ type: deleteStream, payload: id})
+    dispatch({ type: DELETE_STREAM, payload: id})
   };
 }

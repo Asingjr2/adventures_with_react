@@ -7,7 +7,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { createStream } from '../../actions';
+import { createStreamAction } from '../../actions';
 
 
 /** 
@@ -47,7 +47,7 @@ class StreamCreate extends React.Component {
 
   /** onSubmit passed through redux's handleSubmit which prevents defualt and upates form state values. */
   onSubmit = (formValues) => {
-    this.props.createStream(formValues);
+    this.props.createStreamAction(formValues);
   }
 
   /**  
@@ -110,7 +110,7 @@ const formWrapped = reduxForm({
  * along with action creator for use with submit.
  * Passing action creator to component as a prop as well.
  */
-export default connect(null, { createStream: createStream }) (formWrapped) ;
+export default connect(null, { createStreamAction: createStreamAction }) (formWrapped) ;
 
 
 

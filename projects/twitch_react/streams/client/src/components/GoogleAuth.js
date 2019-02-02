@@ -76,8 +76,9 @@ class GoogleAuth extends React.Component {
           SIGN IN
         </button>
       )
-    }
-  }
+    };
+  };
+
   render() {
     return (
       <div>GOOGLE AUTH
@@ -85,6 +86,7 @@ class GoogleAuth extends React.Component {
     )
   };
 };
+
 /** Must define if outside function. */
 const mapStateToProps = state => {
   return { loggedIn: state.auth.loggedIn }

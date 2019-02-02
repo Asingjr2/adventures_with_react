@@ -4,7 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "concurrently": "^4.1.0",
+    "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

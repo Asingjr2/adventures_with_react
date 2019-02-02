@@ -1,4 +1,7 @@
+// contains action creators to handle changes in login states and CRUD for streams
 import streams from '../apis/steams';
+// bringing in history that i manually craeted
+import history from '../history';
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -25,12 +28,23 @@ export const signOut = userId => {
 };
 
 
-/** Receiving formValues from submitted form and then submitting through form. */
+/** 
+ * Receiving formValues from submitted form and 
+ * then submitting for user with reducer to update listing.
+ * Destructuring userId from getState.auth object
+ */
 export const createStreamAction = (formValues) => {
-  return async dispatch => {
-    const response = await streams.post('/streams', formValues);
+  return async (dispatch, getState) => {
+    const {userId} = getState().auth;
 
-    dispatch({ type: CREATE_STREAM, payload: response.data })
+    // const response = await streams.post('/streams', formValues);
+    // line change in include destructured userId element from the getState auth object
+    const response = await streams.post('/streams', { ...formValues, userId})
+
+    dispatch({ type: CREATE_STREAM, payload: response.data });
+
+    // manually navigating user to using manually created history
+    history.push('/');
   };
 }
 

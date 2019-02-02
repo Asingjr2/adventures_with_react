@@ -1,11 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+// importing Router instead of BrowserRouter so that we can use manually history
+import { Router, Route, Link } from 'react-router-dom';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDisplay from './streams/StreamDisplay';
 import StreamDelete  from './streams/StreamDelete';
-import StreamListing from './streams/StreamListing';
+import StreamList from './streams/StreamList';
 import Header from './Header';
+import history from '../history';
 
 /** First page created to show that anchor tags resend network requests. */
 const First = () => {
@@ -33,19 +36,19 @@ const Second = () => {
  */
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
         <Header></Header>
         <Route path="/playPageOne" exact component={First}></Route>
         <Route path="/playPageTwo" exact component={Second}></Route>
 
-        <Route path="/" exact component={StreamListing}></Route>
+        <Route path="/" exact component={StreamList}></Route>
         <Route path="/streams/new" exact component={StreamCreate}></Route>
         <Route path="/streams/edit" exact component={StreamEdit}></Route>
         <Route path="/streams/delete" exact component={StreamDelete}></Route>
         <Route path="/streams/display" exact component={StreamDisplay}></Route>
       </div>
-    </BrowserRouter>
+    </Router>
   ) 
 };
 

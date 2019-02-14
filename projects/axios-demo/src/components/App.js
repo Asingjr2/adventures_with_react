@@ -3,6 +3,21 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 
 class App extends React.Component {
+  componentDidMount() {
+    console.log('before i send axios')
+
+    // test hubspot code
+    axios.post('https://api.hubapi.com/contacts/v1/contact', {
+      params: { hapikey: 'b9716724-9b0a-40e7-8e5c-1215e89845cd',
+        email: 'test@hubspot.com',
+        firstname: 'some first',
+        lastname: 'somelast',
+        favorite_currencies: 'BTC FOREVER'
+      }
+    }).then((resp) => {
+      console.log(resp.data.results)
+    });
+  }
   // Returns submitted search term from submit component 
   // axios takes endpoint as string.
   // Replace below with access key for api to work.
@@ -17,6 +32,18 @@ class App extends React.Component {
       params: { query: term},
       headers: {
         Authorization: 'Client-ID <YOUR ACCESS CODE>'
+      }
+    }).then((resp) => {
+      console.log(resp.data.results)
+    });
+
+    // test hubspot code
+    axios.post('https://api.hubapi.com/contacts/v1/contact', {
+      params: { hapikey: 'b9716724-9b0a-40e7-8e5c-1215e89845cd',
+        email: 'test@hubspot.com',
+        firstname: 'some first',
+        lastname: 'somelast',
+        favorite_currencies: 'BTC FOREVER'
       }
     }).then((resp) => {
       console.log(resp.data.results)

@@ -1,6 +1,6 @@
 'use strict';
 const app = require('../index');
-const chain = require('chai');
+const chai = require('chai');
 const chaiHttp = require('chai-http');
 
 const expect = chai.expect;

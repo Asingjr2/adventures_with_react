@@ -59,7 +59,7 @@ export const fetchStreamsAction = () => {
 
 export const fetchSingleStreamAction = (id) => {
   return async dispatch => {
-    const response = await streams.get(`/streams/:${id}`);
+    const response = await streams.get(`/streams/${id}`);
 
     dispatch({ type: FETCH_STREAM, payload: response.data })
   };
@@ -68,16 +68,20 @@ export const fetchSingleStreamAction = (id) => {
 /** Will be submitting updates coming from another form and pushing to udpated. */
 export const updateStreamAction = (id, formValues) => {
   return async dispatch => {
-    const response = await streams.put(`/streams/:${id}`, formValues);
+    const response = await streams.patch(`/streams/${id}`, formValues);
 
-    dispatch({ type: UPDATE_STREAM, payload: response.data })
+    dispatch({ type: UPDATE_STREAM, payload: response.data });
+
+    console.log('item updated successfully');
+    // manually navigating user to using manually created history
+    history.push('/');
   };
 }
 
 /** No response data needed from await request. */
 export const deleteStreamAction = (id) => {
   return async dispatch => {
-    await streams.delete(`/streams/:${id}`);
+    await streams.delete(`/streams/${id}`);
 
     dispatch({ type: DELETE_STREAM, payload: id})
   };

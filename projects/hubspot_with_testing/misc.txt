@@ -1,0 +1,9 @@
+localhost/:1 Access to XMLHttpRequest at 'https://api.hubapi.com/contacts/v1/contact/?hapikey=b9716724-9b0a-40e7-8e5c-1215e89845cd' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+Error: Request failed with status code 400
+    at createError (createError.js:17)
+    at settle (settle.js:19)
+    at XMLHttpRequest.handleLoad (xhr.js:78)
+
+
+    https://api.hubapi.com/contacts/v1/contact/?hapikey=b9716724-9b0a-40e7-8e5c-1215e89845cd 400

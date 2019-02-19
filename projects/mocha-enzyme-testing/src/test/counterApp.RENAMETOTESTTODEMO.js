@@ -1,3 +1,4 @@
+// all tests work...can change name to test.js to demo
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';

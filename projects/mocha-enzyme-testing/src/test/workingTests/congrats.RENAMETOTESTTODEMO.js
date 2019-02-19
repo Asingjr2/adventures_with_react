@@ -8,8 +8,8 @@ import { shallow } from 'enzyme';
 import PropTypes from 'prop-types';
 import checkPropTypes from 'check-prop-types';
 
-import Congrats from '../WordGuessApp/Congrats';
-import {findByTestAttr, checkProps} from './testUtils';
+import Congrats from '../../WordGuessApp/Congrats';
+import {findByTestAttr, checkProps} from '../testUtils';
 
 const expect = require('chai').expect;
 

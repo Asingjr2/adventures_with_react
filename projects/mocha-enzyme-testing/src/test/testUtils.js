@@ -1,4 +1,4 @@
-import checkPropTypes from 'check-prop-types';
+const checkPropTypes = require('check-prop-types');
 
 const expect = require('chai').expect;
 
@@ -8,7 +8,7 @@ const expect = require('chai').expect;
  * @param {*} val - value for data-test attribute for search
  * @returns { ShallowWrapper}
  */
-export function findByTestAttr(wrapper, val) {
+function findByTestAttr(wrapper, val) {
   return wrapper.find(`[data-test="${val}"]`);
 }
 
@@ -20,7 +20,7 @@ export function findByTestAttr(wrapper, val) {
  * can check docs for more information
  * https://www.npmjs.com/package/check-prop-types
  */
-export function checkProps(component, expectedProps) {
+function checkProps(component, expectedProps) {
   const propError = checkPropTypes(
     component.propTypes, 
     expectedProps, 
@@ -28,5 +28,9 @@ export function checkProps(component, expectedProps) {
     component.name);
     expect(propError).to.be.undefined;
 };
+
+module.exports = {
+  findByTestAttr, checkProps
+}
 
 

@@ -1,8 +1,10 @@
-// testing also includes the testing of prop-types
-// adding props types that simulate existence in components
+/** testing also includes the testing of prop-types
+ * adding props types that simulate existence in components
+ * setupTests file in source
+ * bringing in enzyme, adapter, and config from setupTests file
+ */
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import PropTypes from 'prop-types';
 import checkPropTypes from 'check-prop-types';
 
@@ -10,8 +12,6 @@ import Congrats from '../WordGuessApp/Congrats';
 import {findByTestAttr, checkProps} from './testUtils';
 
 const expect = require('chai').expect;
-
-Enzyme.configure({ adapter: new Adapter() });
 
 // creating default props that can be overridden
 const defaultProps = { success: false };
@@ -52,4 +52,4 @@ test('renders congrats message', () => {
 test('does not throw error with expected props', () => {
   const expectedProps = { success: false };
   checkProps(Congrats, expectedProps);
-})
+});

@@ -39,7 +39,7 @@ class App extends React.Component {
 
     // test hubspot code
     axios.post('https://api.hubapi.com/contacts/v1/contact', {
-      params: { hapikey: 'b9716724-9b0a-40e7-8e5c-1215e89845cd',
+      params: { key: 'secret',
         email: 'test@hubspot.com',
         firstname: 'some first',
         lastname: 'somelast',

@@ -5,7 +5,6 @@ class NewName extends React.Component {
   state = {color: 'red', count: 1}
   componentDidMount() {
     console.log(this.props.friend);
-    // this.setState({ count: count++})
   }
 
   render() {

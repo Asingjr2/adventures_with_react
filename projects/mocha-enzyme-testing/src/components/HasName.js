@@ -1,14 +1,10 @@
 import React from 'react';
 
 class HasName extends React.Component {
-
   state = {color: 'red'}
-  componentDidMount() {
-    console.log(this.props.friend);
-  }
 
   render() {
-    return (<div className="real">PASS PROP FRIEND IS: {this.props.friend}</div>)
+    return (<div friends={this.props.friends} className="real">PASS PROP FRIEND IS: </div>)
   };
-};
+}; 
 export default HasName;

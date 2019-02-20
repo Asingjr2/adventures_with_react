@@ -1,4 +1,7 @@
-// test state changes and values
+/**
+ * test state changes and values
+ * uses deep equal comparison to handle object comparison in state
+ */ 
 const correctGuess = require('../../actions').correctGuess;
 const actionTypes = require('../../actions').actionTypes;
 

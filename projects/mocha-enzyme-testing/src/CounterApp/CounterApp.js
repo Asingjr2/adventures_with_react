@@ -31,3 +31,5 @@ class CounterApp extends React.Component {
     )
   };
 };
+
+export default CounterApp;

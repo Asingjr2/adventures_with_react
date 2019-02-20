@@ -1,6 +1,6 @@
  // test state changes and values
 import { actionTypes } from '../../actions';
-import { successReducer } from '../../reducers/successReducer';
+import successReducer from '../../reducers/successReducer';
 
 const expect = require('chai').expect;
 

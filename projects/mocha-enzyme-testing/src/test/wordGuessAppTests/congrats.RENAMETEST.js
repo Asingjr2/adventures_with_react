@@ -1,6 +1,7 @@
-/** testing also includes the testing of prop-types
+/** 
+ * testing  includes the testing of prop-types
  * adding props types that simulate existence in components
- * setupTests file in source
+ * setupTests file is in source
  * bringing in enzyme, adapter, and config from setupTests file
  */
 import React from 'react';

@@ -1,9 +1,28 @@
-const checkPropTypes = require('check-prop-types');
+import { createStore } from 'redux';
+import checkPropTypes from 'check-prop-types';
+import {expect} from 'chai';
 
-const expect = require('chai').expect;
+import rootReducer from '../reducers';
+
+// const {createStore} = require('redux');
+// const checkPropTypes = require('check-prop-types');
+// const expect = require('chai').expect;
+
+// const rootReducer = require('../reducers');
+
+console.log(typeof rootReducer);
+
+
+/**
+ * storeFactory simulates store that can be passed in redux
+ */
+function storeFactory(initialState) {
+  return createStore(rootReducer, initialState)
+};
 
 /**
  * return ShallowWrapper containing nodes with data-test value
+ * @function
  * @param {ShallowWrapper} wrapper - Enzyme wrapper to search within
  * @param {*} val - value for data-test attribute for search
  * @returns { ShallowWrapper}
@@ -11,7 +30,6 @@ const expect = require('chai').expect;
 function findByTestAttr(wrapper, val) {
   return wrapper.find(`[data-test="${val}"]`);
 }
-
 
 /**
  * checks if exisitng props matched expected type
@@ -30,7 +48,7 @@ function checkProps(component, expectedProps) {
 };
 
 module.exports = {
-  findByTestAttr, checkProps
+  findByTestAttr, checkProps, storeFactory
 }
 
 

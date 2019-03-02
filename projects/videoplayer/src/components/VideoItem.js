@@ -4,6 +4,7 @@ import './VideoItem.css'
 // Added onclick event passed from paremt (videolist) and then previous parent (app).  
 // Making arrow function so that function is ran only on click and works directly with passed video.
 const VideoItem = ({video, onVideoSelect}) => {
+  console.log(VideoItem); 
   return (
   <div className="item video-item"
     onClick={() => onVideoSelect(video)}>

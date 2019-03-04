@@ -1,12 +1,16 @@
 {
-  "name": "stripe",
+  "name": "stripe_real",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
-    "react-stripe-elements": "^2.0.3"
+    "react-stripe-elements": "^2.0.3",
+    "stripe": "^6.25.1"
   },
   "scripts": {
     "start": "react-scripts start",

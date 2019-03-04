@@ -21,12 +21,13 @@ class CheckoutForm extends React.Component {
     });
 
     if (response.ok) {
-      console.log("Purchase comppleted Samus!")
+      console.log("Purchase completed Samus!")
       this.setState({complete: true});
     };
   }
 
   render() {
+    console.log('rendering checkoutForm')
     if (this.state.complete) return <h1>Purchase Complete</h1>;
 
 

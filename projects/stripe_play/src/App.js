@@ -15,7 +15,7 @@ class App extends React.Component {
 
         <div>
           <h1>STRIPE FORM</h1>
-          <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+          <StripeProvider apiKey="">
             <div className="example">
               <h1>REACT STRIPE ELEMENTS TEST</h1>
               <Elements>

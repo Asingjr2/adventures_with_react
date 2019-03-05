@@ -1,7 +1,7 @@
 import React from 'react';
 
 // importing Router instead of BrowserRouter so that we can use manually history
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Route, Link, Switch } from 'react-router-dom';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDisplay from './streams/StreamDisplay';
@@ -33,12 +33,14 @@ const Second = () => {
 /** 
  * BROWSER ROUTER DEPLOYS BLANK SCREEN INSTEAD OF 404 ERRORS.
  * Can change listing to streams/listing.
+ * including switch only grabs one component!!!
  */
 const App = () => {
   return (
     <Router history={history}>
       <div>
-        <Header></Header>
+      <Header></Header>
+      <Switch>
         <Route path="/playPageOne" exact component={First}></Route>
         <Route path="/playPageTwo" exact component={Second}></Route>
 
@@ -46,7 +48,8 @@ const App = () => {
         <Route path="/streams/new" exact component={StreamCreate}></Route>
         <Route path="/streams/edit/:id" exact component={StreamEdit}></Route>
         <Route path="/streams/delete/:id" exact component={StreamDelete}></Route>
-        <Route path="/streams/display" exact component={StreamDisplay}></Route>
+        <Route path="/streams/:id" exact component={StreamDisplay}></Route>
+      </Switch>
       </div>
     </Router>
   ) 

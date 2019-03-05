@@ -73,7 +73,7 @@ export const updateStreamAction = (id, formValues) => {
     dispatch({ type: UPDATE_STREAM, payload: response.data });
 
     console.log('item updated successfully');
-    // manually navigating user to using manually created history
+    // manually navigating user to home using manually created history
     history.push('/');
   };
 }
@@ -83,6 +83,9 @@ export const deleteStreamAction = (id) => {
   return async dispatch => {
     await streams.delete(`/streams/${id}`);
 
-    dispatch({ type: DELETE_STREAM, payload: id})
+    dispatch({ type: DELETE_STREAM, payload: id});
+
+    // manually navigating user to home using manually created history
+    history.push('/');  
   };
 }

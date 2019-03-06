@@ -33,6 +33,10 @@ class StreamDisplay extends React.Component {
     console.log('component updated');
     this.createPlayer();
   }
+  // way to clean up resources like the player created with flv and it will stop working to stream information.
+  componentWillMount() {
+    this.player.destroy();
+  }
 
   // helper method being created to create player instance where the display page is reloaded, or we are waiting to fetch id async
   createPlayer()  {

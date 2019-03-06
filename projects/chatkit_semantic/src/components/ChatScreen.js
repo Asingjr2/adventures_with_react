@@ -4,6 +4,7 @@ import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import TypingUsers from './TypingUsers';
 import OnlineUsers from './OnlineUsers';
+import Message from './Message';
 import {REACT_APP_INSTANCE_LOCATOR} from '../config';
 
 
@@ -16,6 +17,7 @@ class ChatScreen extends React.Component {
         <MessageInput />
         <TypingUsers />
         <OnlineUsers />
+        <Message />
       </div>
     );
   };

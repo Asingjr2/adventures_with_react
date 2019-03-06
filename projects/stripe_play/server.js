@@ -8,11 +8,13 @@ app.use(bodyParser.urlencoded());
 
 app.post("/charge", async (req, res) => {
   try {
+    const token = req.body.stripeToken;
+
     let {status} = await stripe.charges.create({
-      amount: 2000,
+      amount: 100,
       currency: "usd", 
       description: "My first charge",
-      source: req.body
+      source: token
     });
 
     res.json({status});

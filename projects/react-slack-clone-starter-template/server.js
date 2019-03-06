@@ -17,15 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-// does not work
-// need to research how below route works to make sure that I understand it in detail.
-// app.post('/authenticate', (req, res) => {
-//   // need to check how chatkit actually does this...looks like a base query...
-//   console.log('logging response body:', req.body);
-//   const {grant_type} = req.body;
-//   res.json(chatkit.authenticate({grant_type, userId: req.query.user_id}))
-// });
-
 app.post('/auth', (req, res) => {
   const authData = chatkit.authenticate({
     userId: req.query.user_id,

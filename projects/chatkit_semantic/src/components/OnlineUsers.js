@@ -2,13 +2,22 @@ import React from 'react';
 
 
 class OnlineUsers extends React.Component {
+
   render() {
-    return (
-      <div>
-        THIS IS THE Online Users Form
-      </div>
-    );
-  };
+    if (this.props.users) {
+      return (
+        <ul>
+          {this.props.users.map((user, index) => {
+            return (
+          <li>Number: {index} Name: {user.name} Presence: ({ user.presence.state})</li>
+            )
+          }) }
+        </ul>
+      )
+    } else {
+      return <div>LOADING...</div>
+    }
+  }
 }
 
 export default OnlineUsers;
